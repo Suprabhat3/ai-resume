@@ -9,7 +9,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-slate-950/70 backdrop-blur-xl supports-[backdrop-filter]:bg-slate-950/70 transition-all print:hidden">
+    <header className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 border-b border-slate-200 print:hidden">
       <div className="container mx-auto flex h-16 items-center justify-between px-6 max-w-7xl">
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center group">
@@ -22,24 +22,24 @@ export function Navbar() {
           <nav className="hidden md:flex gap-6">
             <Link
               href="/builder"
-              className="text-sm font-medium text-slate-300 transition-colors hover:text-white relative group"
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-emerald-700 relative group"
             >
               Resume Builder
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-500 transition-all group-hover:w-full"></span>
             </Link>
             <Link
               href="/optimizer"
-              className="text-sm font-medium text-slate-300 transition-colors hover:text-white relative group"
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-teal-700 relative group"
             >
               Optimizer
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-500 transition-all group-hover:w-full"></span>
             </Link>
             <Link
               href="/ats-checker"
-              className="text-sm font-medium text-slate-300 transition-colors hover:text-white relative group"
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-cyan-700 relative group"
             >
               ATS Checker
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-500 transition-all group-hover:w-full"></span>
             </Link>
           </nav>
         </div>
@@ -50,13 +50,13 @@ export function Navbar() {
             <Button
               variant="ghost"
               asChild
-              className="text-slate-300 hover:text-white hover:bg-white/5 rounded-full px-5"
+              className="text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 rounded-none px-5"
             >
               <Link href="/login">Log in</Link>
             </Button>
             <Button
               asChild
-              className="bg-white text-slate-950 hover:bg-slate-200 rounded-full px-6 font-semibold shadow-lg shadow-white/10 transition-all"
+              className="bg-emerald-600 text-white hover:bg-emerald-700 rounded-none px-6 font-semibold shadow-md shadow-emerald-500/10 transition-all border-0"
             >
               <Link href="/register">Sign up</Link>
             </Button>
@@ -67,7 +67,7 @@ export function Navbar() {
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-slate-300 hover:text-white transition-colors"
+            className="text-slate-600 hover:text-emerald-700 transition-colors cursor-pointer"
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -80,25 +80,25 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-slate-950 border-b border-white/5 shadow-2xl py-4 px-6 flex flex-col space-y-4">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-xl py-4 px-6 flex flex-col space-y-4">
           <Link
             href="/builder"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-base font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5"
+            className="text-base font-medium text-slate-600 hover:text-emerald-700 transition-colors py-2 border-b border-slate-100"
           >
             Resume Builder
           </Link>
           <Link
             href="/optimizer"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-base font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5"
+            className="text-base font-medium text-slate-600 hover:text-teal-700 transition-colors py-2 border-b border-slate-100"
           >
             Optimizer
           </Link>
           <Link
             href="/ats-checker"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-base font-medium text-slate-300 hover:text-white transition-colors py-2 border-b border-white/5"
+            className="text-base font-medium text-slate-600 hover:text-cyan-700 transition-colors py-2 border-b border-slate-100"
           >
             ATS Checker
           </Link>
@@ -108,14 +108,14 @@ export function Navbar() {
               variant="outline"
               asChild
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-slate-300 border-white/10 hover:bg-white/5 hover:text-white"
+              className="w-full text-slate-700 border-slate-200 hover:bg-slate-50 hover:text-slate-900 rounded-none"
             >
               <Link href="/login">Log in</Link>
             </Button>
             <Button
               asChild
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full bg-indigo-600 text-white hover:bg-indigo-700 transition-all border-0"
+              className="w-full bg-emerald-600 text-white hover:bg-emerald-700 transition-all border-0 rounded-none shadow-md"
             >
               <Link href="/register">Sign up</Link>
             </Button>
