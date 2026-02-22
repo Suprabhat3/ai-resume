@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ResumeAI - Build Your Premium ATS-Friendly Resume",
+  title: "ATScV - Build Your Premium ATS-Friendly Resume",
   description:
     "Create, optimize, and score your resume with advanced AI technology.",
 };

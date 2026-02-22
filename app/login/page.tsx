@@ -37,7 +37,7 @@ function LoginContent() {
             <Sparkles className="w-6 h-6 text-white" />
           </div>
           <span className="inline-block font-extrabold text-2xl tracking-tight text-slate-900">
-            ResumeAI<span className="text-emerald-500">.</span>
+            ATScV<span className="text-emerald-500">.</span>
           </span>
         </Link>
 
@@ -132,13 +132,13 @@ function LoginContent() {
 
 export default function LoginPage() {
   return (
-      <Suspense
-        fallback={
-          <div className="min-h-screen bg-slate-50 flex items-center justify-center text-slate-600">
-            Loading...
-          </div>
-        }
-      >
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center text-slate-600">
+          Loading...
+        </div>
+      }
+    >
       <LoginContent />
     </Suspense>
   );

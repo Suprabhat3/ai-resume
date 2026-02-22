@@ -15,7 +15,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center group">
             <img
               src="/logo.png"
-              alt="ResumeAI Logo"
+              alt="ATScV Logo"
               className="h-8 md:h-10 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </Link>

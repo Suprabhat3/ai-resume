@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, Target } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative px-6 py-32 md:py-48 flex flex-col items-center text-center max-w-6xl mx-auto z-10">
+    <section className="relative px-6 py-22 md:py-28 flex flex-col items-center text-center max-w-6xl mx-auto z-10">
       <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 border border-emerald-200/50 backdrop-blur-md mb-8 shadow-sm">
         <Sparkles className="w-4 h-4 text-emerald-600" />
         <span className="text-sm font-medium text-slate-700">
