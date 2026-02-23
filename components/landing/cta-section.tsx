@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export function CtaSection() {
   return (
     <section className="px-6 py-24 mb-20 relative z-10">
-      <div className="max-w-5xl mx-auto bg-gradient-to-r from-emerald-100/50 to-teal-100/50 border border-emerald-200/50 p-12 md:p-20 text-center relative overflow-hidden backdrop-blur-lg rounded-none">
+      <FadeIn className="max-w-5xl mx-auto bg-gradient-to-r from-emerald-100/50 to-teal-100/50 border border-emerald-200/50 p-12 md:p-20 text-center relative overflow-hidden backdrop-blur-lg rounded-none">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-emerald-300/20 blur-[80px]"></div>
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-teal-300/20 blur-[80px]"></div>
 
@@ -22,7 +23,7 @@ export function CtaSection() {
         >
           <Link href="/builder">Start For Free Today</Link>
         </Button>
-      </div>
+      </FadeIn>
     </section>
   );
 }

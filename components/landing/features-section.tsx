@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText, Zap, ShieldCheck } from "lucide-react";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export function FeaturesSection() {
   return (
@@ -18,7 +19,10 @@ export function FeaturesSection() {
 
       <div className="grid md:grid-cols-3 gap-8">
         {/* Feature 1 */}
-        <div className="group relative border border-slate-200 bg-white/60 p-8 hover:bg-white/90 transition-all duration-300 backdrop-blur-sm overflow-hidden flex flex-col items-start gap-4 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-500/5 rounded-none">
+        <FadeIn
+          delay={0}
+          className="group relative border border-slate-200 bg-white/60 p-8 hover:bg-white/90 transition-all duration-300 backdrop-blur-sm overflow-hidden flex flex-col items-start gap-4 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-500/5 rounded-none"
+        >
           <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
             <FileText className="w-32 h-32 text-emerald-600" />
           </div>
@@ -43,10 +47,13 @@ export function FeaturesSection() {
               <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-        </div>
+        </FadeIn>
 
         {/* Feature 2 */}
-        <div className="group relative border border-slate-200 bg-white/60 p-8 hover:bg-white/90 transition-all duration-300 backdrop-blur-sm overflow-hidden flex flex-col items-start gap-4 hover:-translate-y-2 hover:shadow-xl hover:shadow-teal-500/5 rounded-none">
+        <FadeIn
+          delay={150}
+          className="group relative border border-slate-200 bg-white/60 p-8 hover:bg-white/90 transition-all duration-300 backdrop-blur-sm overflow-hidden flex flex-col items-start gap-4 hover:-translate-y-2 hover:shadow-xl hover:shadow-teal-500/5 rounded-none"
+        >
           <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
             <Zap className="w-32 h-32 text-teal-600" />
           </div>
@@ -70,10 +77,13 @@ export function FeaturesSection() {
               <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-        </div>
+        </FadeIn>
 
         {/* Feature 3 */}
-        <div className="group relative border border-slate-200 bg-white/60 p-8 hover:bg-white/90 transition-all duration-300 backdrop-blur-sm overflow-hidden flex flex-col items-start gap-4 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/5 rounded-none">
+        <FadeIn
+          delay={300}
+          className="group relative border border-slate-200 bg-white/60 p-8 hover:bg-white/90 transition-all duration-300 backdrop-blur-sm overflow-hidden flex flex-col items-start gap-4 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/5 rounded-none"
+        >
           <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
             <ShieldCheck className="w-32 h-32 text-cyan-600" />
           </div>
@@ -97,7 +107,7 @@ export function FeaturesSection() {
               <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

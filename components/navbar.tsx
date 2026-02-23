@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -79,8 +80,15 @@ export function Navbar() {
       </div>
 
       {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-xl py-4 px-6 flex flex-col space-y-4">
+      <div
+        className={cn(
+          "md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-xl flex flex-col transition-all duration-300 ease-in-out origin-top",
+          mobileMenuOpen
+            ? "opacity-100 scale-y-100 py-4"
+            : "opacity-0 scale-y-0 h-0 py-0 overflow-hidden pointer-events-none",
+        )}
+      >
+        <div className="px-6 flex flex-col space-y-4">
           <Link
             href="/builder"
             onClick={() => setMobileMenuOpen(false)}
@@ -103,7 +111,7 @@ export function Navbar() {
             ATS Checker
           </Link>
 
-          <div className="flex flex-col gap-3 pt-2">
+          <div className="flex flex-col gap-3 pt-2 pb-2">
             <Button
               variant="outline"
               asChild
@@ -115,13 +123,13 @@ export function Navbar() {
             <Button
               asChild
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full bg-emerald-600 text-white hover:bg-emerald-700 transition-all border-0 rounded-none shadow-md"
+              className="w-full bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-200 active:scale-[0.98] border-0 rounded-none shadow-md"
             >
               <Link href="/register">Sign up</Link>
             </Button>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
