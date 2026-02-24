@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=20.16.0"
+    "node": ">=22.3.0"
   },
   "scripts": {
     "dev": "next dev",
@@ -20,8 +20,7 @@
     "lucide-react": "^0.575.0",
     "next": "16.1.6",
     "openai": "^6.22.0",
-    "pdf-parse": "^2.4.5",
-    "pdfjs-dist": "^5.4.296",
+    "pdf-parse": "1.1.1",
     "radix-ui": "^1.4.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
