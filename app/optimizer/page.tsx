@@ -26,6 +26,9 @@ export default function OptimizerPage() {
   const [result, setResult] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
+  const [templateType, setTemplateType] = useState<
+    "modern" | "classic" | "minimalist"
+  >("modern");
 
   useEffect(() => {
     const pendingResume = localStorage.getItem("pendingOptimizerResume");
@@ -250,36 +253,70 @@ export default function OptimizerPage() {
             </Card>
           ) : (
             <div className="space-y-8 animate-fade-in-up print:space-y-0 print:m-0 print:p-0">
-              <div className="flex flex-col sm:flex-row justify-between items-center bg-white/70 border border-slate-200 p-6 rounded-none backdrop-blur-xl shadow-2xl print:hidden">
-                <div className="text-center sm:text-left mb-4 sm:mb-0">
-                  <h2 className="text-2xl font-bold text-slate-900 mb-1 flex items-center justify-center sm:justify-start gap-2">
-                    <Sparkles className="w-5 h-5 text-emerald-600" />
-                    Optimization Complete!
-                  </h2>
-                  <p className="text-slate-600">
-                    Your resume has been rewritten for maximum impact.
-                  </p>
+              <div className="flex flex-col gap-6 bg-white/70 border border-slate-200 p-6 sm:p-8 rounded-none backdrop-blur-xl shadow-2xl print:hidden">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+                  <div className="text-center sm:text-left w-full sm:w-auto">
+                    <h2 className="text-2xl font-bold text-slate-900 mb-2 flex items-center justify-center sm:justify-start gap-2">
+                      <Sparkles className="w-6 h-6 text-emerald-600" />
+                      Optimization Complete!
+                    </h2>
+                    <p className="text-slate-600">
+                      Your resume has been rewritten for maximum impact.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto shrink-0">
+                    <Button
+                      variant="outline"
+                      onClick={() => setResult(null)}
+                      className="h-11 px-6 bg-white border-slate-200 hover:bg-slate-50 hover:text-emerald-700 text-slate-600 rounded-none transition-all w-full sm:w-auto"
+                    >
+                      Optimize Another
+                    </Button>
+                    <Button
+                      onClick={handleDownloadAttempt}
+                      className="h-11 px-6 bg-emerald-600 hover:bg-emerald-700 text-white rounded-none shadow-md transition-all border-0 w-full sm:w-auto font-medium"
+                    >
+                      <Printer className="mr-2 w-4 h-4 opacity-90" />
+                      Download PDF
+                    </Button>
+                  </div>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4 print:hidden w-full sm:w-auto mt-4 sm:mt-0">
-                  <Button
-                    variant="outline"
-                    onClick={() => setResult(null)}
-                    className="h-12 px-6 bg-white/70 border-slate-200 hover:bg-slate-100 hover:text-emerald-700 text-slate-600 rounded-none transition-all w-full sm:w-auto"
-                  >
-                    Optimize Another
-                  </Button>
-                  <Button
-                    onClick={handleDownloadAttempt}
-                    className="h-12 px-6 bg-emerald-600 hover:bg-emerald-700 text-white rounded-none shadow-lg transition-all border-0 w-full sm:w-auto"
-                  >
-                    <Printer className="mr-2 w-5 h-5 opacity-80" />
-                    Download PDF
-                  </Button>
+
+                <div className="pt-5 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="text-sm font-semibold text-slate-900 tracking-wide">
+                    Choose a Resume Template:
+                  </div>
+                  <div className="flex w-full sm:w-auto bg-slate-100/50 p-1.5 rounded-none border border-slate-200">
+                    <Button
+                      variant={templateType === "modern" ? "default" : "ghost"}
+                      onClick={() => setTemplateType("modern")}
+                      className={`flex-1 sm:px-8 h-9 rounded-none ${templateType === "modern" ? "bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm" : "hover:bg-slate-200/50 text-slate-600"}`}
+                    >
+                      Modern
+                    </Button>
+                    <Button
+                      variant={templateType === "classic" ? "default" : "ghost"}
+                      onClick={() => setTemplateType("classic")}
+                      className={`flex-1 sm:px-8 h-9 rounded-none ${templateType === "classic" ? "bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm" : "hover:bg-slate-200/50 text-slate-600"}`}
+                    >
+                      Classic
+                    </Button>
+                    <Button
+                      variant={
+                        templateType === "minimalist" ? "default" : "ghost"
+                      }
+                      onClick={() => setTemplateType("minimalist")}
+                      className={`flex-1 sm:px-8 h-9 rounded-none ${templateType === "minimalist" ? "bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm" : "hover:bg-slate-200/50 text-slate-600"}`}
+                    >
+                      Minimalist
+                    </Button>
+                  </div>
                 </div>
               </div>
 
               <div className="bg-white text-black p-4 sm:p-10 md:p-14 shadow-2xl rounded-none mx-auto max-w-[850px] min-h-[1100px] border border-slate-200 print:shadow-none print:border-none print:p-0 print:m-0 print:w-full print:max-w-none print:min-h-0 print:rounded-none overflow-hidden">
-                <ResumePreview data={result} />
+                <ResumePreview data={result} template={templateType} />
               </div>
             </div>
           )}
