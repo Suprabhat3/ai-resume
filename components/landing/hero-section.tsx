@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Target } from "lucide-react";
 import { FadeIn } from "@/components/ui/fade-in";
+import { ResumeIllustration } from "@/components/landing/illustrations";
 
 export function HeroSection() {
   return (
@@ -49,6 +50,11 @@ export function HeroSection() {
               Analyze ATS Score
             </Link>
           </Button>
+        </div>
+
+        <div className="mt-20 w-full max-w-4xl relative">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-emerald-400/20 blur-[100px] rounded-full pointer-events-none" />
+          <ResumeIllustration className="w-full h-auto max-h-[450px] drop-shadow-2xl hover:-translate-y-2 transition-transform duration-700" />
         </div>
       </FadeIn>
     </section>

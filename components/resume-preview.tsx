@@ -18,7 +18,7 @@ function ModernTemplate({ data }: { data: any }) {
   return (
     <div className="font-sans text-[11pt] leading-snug">
       {/* Header */}
-      <div className="text-center mb-6 border-b-[3px] border-emerald-800 pb-5">
+      <div className="text-center mb-4 border-b-[3px] border-emerald-800 pb-3">
         <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-[0.1em] text-zinc-900 mb-1 break-words">
           {data.fullName || "Your Name"}
         </h1>
@@ -101,8 +101,8 @@ function ModernTemplate({ data }: { data: any }) {
 
       {/* Summary */}
       {data.summary && (
-        <div className="mb-6">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-800 border-b border-zinc-300 pb-1 mb-3 flex items-center">
+        <div className="mb-4">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-800 border-b border-zinc-300 pb-1 mb-2 flex items-center">
             Professional Summary
           </h2>
           <p className="text-[10.5pt] text-zinc-800 leading-relaxed text-justify">
@@ -113,11 +113,11 @@ function ModernTemplate({ data }: { data: any }) {
 
       {/* Experience */}
       {data.experience && data.experience.length > 0 && (
-        <div className="mb-6">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-800 border-b border-zinc-300 pb-1 mb-4">
+        <div className="mb-4">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-800 border-b border-zinc-300 pb-1 mb-2">
             Professional Experience
           </h2>
-          <div className="space-y-6 sm:space-y-5">
+          <div className="space-y-4 sm:space-y-3">
             {data.experience.map((exp: any, i: number) => (
               <div key={i}>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-1 sm:mb-0.5">
@@ -149,11 +149,11 @@ function ModernTemplate({ data }: { data: any }) {
 
       {/* Projects */}
       {data.projects && data.projects.length > 0 && (
-        <div className="mb-6">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-800 border-b border-zinc-300 pb-1 mb-4">
+        <div className="mb-4">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-800 border-b border-zinc-300 pb-1 mb-2">
             Projects
           </h2>
-          <div className="space-y-6 sm:space-y-5">
+          <div className="space-y-4 sm:space-y-3">
             {data.projects.map((proj: any, i: number) => (
               <div key={i}>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-1 sm:mb-0.5 gap-2 sm:gap-0">
@@ -216,11 +216,11 @@ function ModernTemplate({ data }: { data: any }) {
 
       {/* Education */}
       {data.education && data.education.length > 0 && (
-        <div className="mb-6">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-800 border-b border-zinc-300 pb-1 mb-4">
+        <div className="mb-4">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-800 border-b border-zinc-300 pb-1 mb-2">
             Education
           </h2>
-          <div className="space-y-5 sm:space-y-3">
+          <div className="space-y-3 sm:space-y-2">
             {data.education.map((edu: any, i: number) => (
               <div
                 key={i}
@@ -247,8 +247,8 @@ function ModernTemplate({ data }: { data: any }) {
 
       {/* Skills */}
       {data.skills && data.skills.length > 0 && (
-        <div className="mb-3">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-800 border-b border-zinc-300 pb-1 mb-3">
+        <div className="mb-2">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-800 border-b border-zinc-300 pb-1 mb-2">
             Skills & Expertise
           </h2>
           <p className="text-[10.5pt] text-zinc-800 leading-relaxed">
@@ -278,7 +278,7 @@ function ClassicTemplate({ data }: { data: any }) {
   return (
     <div className="font-serif text-[11pt] leading-snug text-black">
       {/* Header */}
-      <div className="text-center mb-6">
+      <div className="text-center mb-4">
         <h1 className="text-4xl text-black mb-2 uppercase break-words">
           {data.fullName || "Your Name"}
         </h1>
@@ -294,8 +294,8 @@ function ClassicTemplate({ data }: { data: any }) {
 
       {/* Summary */}
       {data.summary && (
-        <div className="mb-6">
-          <h2 className="text-sm font-bold uppercase border-b-2 border-black pb-1 mb-3 text-black">
+        <div className="mb-4">
+          <h2 className="text-sm font-bold uppercase border-b-2 border-black pb-1 mb-2 text-black">
             Professional Summary
           </h2>
           <p className="text-[10.5pt] text-black leading-relaxed text-justify">
@@ -306,11 +306,11 @@ function ClassicTemplate({ data }: { data: any }) {
 
       {/* Experience */}
       {data.experience && data.experience.length > 0 && (
-        <div className="mb-6">
-          <h2 className="text-sm font-bold uppercase border-b-2 border-black pb-1 mb-4 text-black">
+        <div className="mb-4">
+          <h2 className="text-sm font-bold uppercase border-b-2 border-black pb-1 mb-2 text-black">
             Experience
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {data.experience.map((exp: any, i: number) => (
               <div key={i}>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline">
@@ -342,11 +342,11 @@ function ClassicTemplate({ data }: { data: any }) {
 
       {/* Projects */}
       {data.projects && data.projects.length > 0 && (
-        <div className="mb-6">
-          <h2 className="text-sm font-bold uppercase border-b-2 border-black pb-1 mb-4 text-black">
+        <div className="mb-4">
+          <h2 className="text-sm font-bold uppercase border-b-2 border-black pb-1 mb-2 text-black">
             Projects
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {data.projects.map((proj: any, i: number) => (
               <div key={i}>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline">
@@ -379,11 +379,11 @@ function ClassicTemplate({ data }: { data: any }) {
 
       {/* Education */}
       {data.education && data.education.length > 0 && (
-        <div className="mb-6">
-          <h2 className="text-sm font-bold uppercase border-b-2 border-black pb-1 mb-4 text-black">
+        <div className="mb-4">
+          <h2 className="text-sm font-bold uppercase border-b-2 border-black pb-1 mb-2 text-black">
             Education
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-2">
             {data.education.map((edu: any, i: number) => (
               <div
                 key={i}
@@ -410,8 +410,8 @@ function ClassicTemplate({ data }: { data: any }) {
 
       {/* Skills */}
       {data.skills && data.skills.length > 0 && (
-        <div className="mb-3">
-          <h2 className="text-sm font-bold uppercase border-b-2 border-black pb-1 mb-3 text-black">
+        <div className="mb-2">
+          <h2 className="text-sm font-bold uppercase border-b-2 border-black pb-1 mb-2 text-black">
             Skills
           </h2>
           <p className="text-[10.5pt] text-black leading-relaxed">
@@ -430,7 +430,7 @@ function MinimalistTemplate({ data }: { data: any }) {
   return (
     <div className="font-sans text-[10.5pt] leading-relaxed text-zinc-800">
       {/* Header */}
-      <div className="mb-10 text-left">
+      <div className="mb-6 text-left">
         <h1 className="text-4xl font-light text-zinc-900 mb-2 break-words">
           {data.fullName || "Your Name"}
         </h1>
@@ -453,13 +453,13 @@ function MinimalistTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-[1fr_3fr] gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-[1fr_3fr] gap-6">
         <div>
           {/* Left Column content (can place skills here for variation, but standard flow is below) */}
           {/* Skills */}
           {data.skills && data.skills.length > 0 && (
-            <div className="mb-8">
-              <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">
+            <div className="mb-6">
+              <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">
                 Skills
               </h2>
               <div className="flex flex-col gap-1">
@@ -478,8 +478,8 @@ function MinimalistTemplate({ data }: { data: any }) {
 
           {/* Education */}
           {data.education && data.education.length > 0 && (
-            <div className="mb-8">
-              <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4">
+            <div className="mb-6">
+              <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2">
                 Education
               </h2>
               <div className="space-y-4">
@@ -502,18 +502,18 @@ function MinimalistTemplate({ data }: { data: any }) {
         <div>
           {/* Summary */}
           {data.summary && (
-            <div className="mb-10">
+            <div className="mb-6">
               <p className="text-zinc-700 text-justify">{data.summary}</p>
             </div>
           )}
 
           {/* Experience */}
           {data.experience && data.experience.length > 0 && (
-            <div className="mb-10">
-              <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-6 border-b border-zinc-200 pb-2">
+            <div className="mb-6">
+              <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4 border-b border-zinc-200 pb-1">
                 Experience
               </h2>
-              <div className="space-y-8">
+              <div className="space-y-5">
                 {data.experience.map((exp: any, i: number) => (
                   <div key={i}>
                     <div className="flex flex-col sm:flex-row justify-between items-start mb-2">
@@ -545,11 +545,11 @@ function MinimalistTemplate({ data }: { data: any }) {
 
           {/* Projects */}
           {data.projects && data.projects.length > 0 && (
-            <div className="mb-8">
-              <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-6 border-b border-zinc-200 pb-2">
+            <div className="mb-6">
+              <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4 border-b border-zinc-200 pb-1">
                 Projects
               </h2>
-              <div className="space-y-8">
+              <div className="space-y-5">
                 {data.projects.map((proj: any, i: number) => (
                   <div key={i}>
                     <div className="mb-2">

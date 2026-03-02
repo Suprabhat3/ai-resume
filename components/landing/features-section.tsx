@@ -2,11 +2,15 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText, Zap, ShieldCheck } from "lucide-react";
 import { FadeIn } from "@/components/ui/fade-in";
+import { AbstractRings } from "@/components/landing/illustrations";
 
 export function FeaturesSection() {
   return (
-    <section className="px-6 py-32 max-w-7xl mx-auto relative z-10">
-      <div className="text-center mb-20">
+    <section className="px-6 py-32 max-w-7xl mx-auto relative z-10 overflow-hidden">
+      <AbstractRings className="hidden md:block absolute top-10 right-[-10%] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px] opacity-[0.05] pointer-events-none -z-10" />
+      <AbstractRings className="hidden md:block absolute bottom-10 left-[-10%] md:w-[300px] md:h-[300px] lg:w-[500px] lg:h-[500px] opacity-[0.05] pointer-events-none -z-10" />
+
+      <div className="text-center mb-20 relative z-10">
         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">
           Powerful Tools for Your{" "}
           <span className="text-emerald-500">Career</span>

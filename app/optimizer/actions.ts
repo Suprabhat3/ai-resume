@@ -129,18 +129,18 @@ Provide the optimized resume in JSON format exactly matching this structure:
 
 Ensure the output is ONLY the JSON object, with no markdown wrappers or extra text. Make the language strong, professional, and action-oriented.
 
-ONE-PAGE DENSITY REQUIREMENTS (IMPORTANT):
-- Target total content length: approximately ${TARGET_RESUME_WORDS} words.
-- Summary: 50-80 words.
-- Experience: as per the orignal
-- Projects: at least 2 entries.
-- Skills: provide 8-10 relevant, ATS-friendly skills.
+ONE-PAGE DENSITY REQUIREMENTS (CRITICAL):
+- MUST FIT EXACTLY ON ONE PAGE.
+- Max total content length: STRICTLY 350-450 words. Do not exceed 450 words.
+- Summary: 2-3 concise sentences (50-60 words max).
+- Experience: Max 3-4 bullet points per role. Condense older or less relevant experience to 1-2 bullets.
+- Projects: Include only the top 1-2 projects, with 2 bullets each.
+- Skills: Provide 8-10 high-impact, ATS-friendly skills.
 
 SPARSE-RESUME RULES:
-- If the original resume has limited details, expand responsibly using the candidate's actual domain, tools, and responsibilities inferred from the source text and target job.
-- Do not fabricate employers, degrees, dates, certifications, or exact metrics that are not supported by input.
-- If needed, use safe section labels like "Relevant Experience" or "Selected Projects" and write outcome-focused bullets without fake claims.
-- Prioritize completeness and readability so the final resume feels like a full one-page document. don't more then that `;
+- If the original resume is too short, expand responsibly using the candidate's actual domain, tools, and responsibilities inferred from the source text and target job, to fill precisely ONE page.
+- Do not fabricate employers, degrees, dates, certifications, or exact metrics.
+- Prioritize concise readability so the final resume feels like a perfectly crafted, dense ONE-PAGE document. No more than that.`;
 
     const response = await getOptimizationResponse(prompt);
 

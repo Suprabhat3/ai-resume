@@ -1,10 +1,32 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Github, Twitter, Linkedin, Mail, MapPin, Globe } from "lucide-react";
+import {
+  Github,
+  Twitter,
+  Linkedin,
+  Mail,
+  MapPin,
+  Globe,
+  Heart,
+  X,
+} from "lucide-react";
+import { GridPattern } from "@/components/landing/illustrations";
 
 export function Footer() {
+  const [showPricingAlert, setShowPricingAlert] = useState(false);
+
+  useEffect(() => {
+    if (showPricingAlert) {
+      const timer = setTimeout(() => setShowPricingAlert(false), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showPricingAlert]);
   return (
-    <footer className="border-t border-slate-200 bg-slate-50 relative z-10 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="border-t border-slate-200 bg-slate-50 relative z-10 pt-16 pb-8 overflow-hidden">
+      <GridPattern className="absolute inset-0 w-full h-full opacity-30 mix-blend-overlay pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2 space-y-6">
             <div className="w-32 sm:w-40">
@@ -77,12 +99,15 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="#pricing"
-                  className="hover:text-emerald-600 transition-colors inline-block"
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowPricingAlert(true);
+                  }}
+                  className="hover:text-emerald-600 transition-colors inline-block cursor-pointer text-left"
                 >
                   Pricing
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -140,7 +165,11 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Globe className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                <span className="hover:text-green-600 transition-colors"><a href="https://new.suprabhat.site" target="_blank">Portfolio</a></span>
+                <span className="hover:text-green-600 transition-colors">
+                  <a href="https://new.suprabhat.site" target="_blank">
+                    Portfolio
+                  </a>
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
@@ -180,6 +209,39 @@ export function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Pricing Alert Toast */}
+      {showPricingAlert && (
+        <div className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 animate-in slide-in-from-bottom-8 fade-in duration-500">
+          <div className="bg-white border border-emerald-200 shadow-[0_20px_40px_-15px_rgba(16,185,129,0.2)] p-4 sm:p-5 flex items-start gap-4 max-w-sm relative overflow-hidden group">
+            {/* Background effects */}
+            <div className="absolute top-[-50%] right-[-20%] w-32 h-32 bg-emerald-400/20 rounded-full blur-2xl group-hover:bg-emerald-400/30 transition-colors pointer-events-none"></div>
+            <div className="absolute bottom-[-20%] left-[-10%] w-20 h-20 bg-teal-400/20 rounded-full blur-xl pointer-events-none"></div>
+
+            <div className="bg-gradient-to-br from-emerald-100 to-teal-100 p-2.5 sm:p-3 text-emerald-600 shrink-0 relative z-10 ring-1 ring-emerald-200/50 shadow-sm">
+              <Heart className="w-5 h-5 fill-emerald-500 text-emerald-600 drop-shadow-sm animate-pulse" />
+            </div>
+
+            <div className="flex-1 pr-6 relative z-10">
+              <h4 className="text-slate-900 font-bold text-sm sm:text-base mb-1 tracking-tight">
+                100% Free Forever
+              </h4>
+              <p className="text-slate-600 text-[13px] leading-relaxed">
+                ATScV is an open initiative built for the community. Enjoy full
+                access without any paywalls or hidden fees!
+              </p>
+            </div>
+
+            <button
+              onClick={() => setShowPricingAlert(false)}
+              className="absolute top-3 right-3 text-slate-400 hover:text-slate-700 bg-slate-50 hover:bg-slate-100 p-1 transition-colors z-20"
+              aria-label="Close alert"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      )}
     </footer>
   );
 }
