@@ -230,7 +230,7 @@ export default function OptimizerPage() {
                       id="context"
                       name="context"
                       placeholder="e.g. Focus more on my leadership experience, keep it strictly under 1 page, switch my tone to be more analytical..."
-                      className="min-h-[80px] resize-none bg-white/50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-emerald-500/50 focus-visible:border-emerald-500/50 rounded-none p-4"
+                      className="min-h-20 resize-none bg-white/50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-emerald-500/50 focus-visible:border-emerald-500/50 rounded-none p-4"
                     />
                   </div>
 
