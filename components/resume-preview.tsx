@@ -3,15 +3,41 @@ import { Mail, Phone, MapPin, Linkedin, Github, Globe } from "lucide-react";
 export function ResumePreview({
   data,
   template = "modern",
+  fontScale = 1,
 }: {
   data: any;
   template?: string;
+  fontScale?: number;
 }) {
   if (!data) return null;
 
-  if (template === "classic") return <ClassicTemplate data={data} />;
-  if (template === "minimalist") return <MinimalistTemplate data={data} />;
-  return <ModernTemplate data={data} />;
+  const safeScale = Math.min(Math.max(fontScale, 0.8), 1.05);
+  const scaledPreviewStyle = {
+    width: "100%",
+    zoom: safeScale,
+  };
+
+  if (template === "classic") {
+    return (
+      <div style={scaledPreviewStyle}>
+        <ClassicTemplate data={data} />
+      </div>
+    );
+  }
+
+  if (template === "minimalist") {
+    return (
+      <div style={scaledPreviewStyle}>
+        <MinimalistTemplate data={data} />
+      </div>
+    );
+  }
+
+  return (
+    <div style={scaledPreviewStyle}>
+      <ModernTemplate data={data} />
+    </div>
+  );
 }
 
 function ModernTemplate({ data }: { data: any }) {
@@ -158,7 +184,7 @@ function ModernTemplate({ data }: { data: any }) {
               <div key={i}>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-1 sm:mb-0.5 gap-2 sm:gap-0">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
-                    <h3 className="font-bold text-[11.5pt] text-zinc-900 break-words">
+                    <h3 className="font-bold text-[11.5pt] text-zinc-900 wrap-break-word">
                       {proj.name}
                     </h3>
                     <div className="flex flex-wrap gap-2">
@@ -173,7 +199,7 @@ function ModernTemplate({ data }: { data: any }) {
                           rel="noreferrer"
                           className="text-zinc-500 hover:text-emerald-600 transition flex items-center gap-1 text-[10px] font-semibold tracking-wider"
                         >
-                          <Globe className="w-3 h-3" /> DEMO
+                          <Globe className="w-3 h-3" /> Live View
                         </a>
                       )}
                       {proj.githubLink && (

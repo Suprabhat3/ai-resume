@@ -43,6 +43,7 @@ export default function BuilderPage() {
   const [templateType, setTemplateType] = useState<
     "modern" | "classic" | "minimalist"
   >("modern");
+  const [fontScale, setFontScale] = useState(1);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   const [formData, setFormData] = useState({
@@ -1040,11 +1041,53 @@ export default function BuilderPage() {
                     </Button>
                   </div>
                 </div>
+
+                <div className="pt-5 border-t border-slate-200 flex flex-col gap-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="text-sm font-semibold text-slate-900 tracking-wide">
+                      Text Size to Fit One Page
+                    </div>
+                    <div className="text-xs font-medium text-slate-600">
+                      {Math.round(fontScale * 100)}%
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs text-slate-500">Smaller</span>
+                    <input
+                      type="range"
+                      min={80}
+                      max={100}
+                      step={2}
+                      value={Math.round(fontScale * 100)}
+                      onChange={(e) => {
+                        const nextScale = Number(e.target.value) / 100;
+                        setFontScale(nextScale);
+                      }}
+                      className="w-full accent-emerald-600"
+                    />
+                    <span className="text-xs text-slate-500">Default</span>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      onClick={() => setFontScale(1)}
+                      className="h-8 px-3 text-xs text-slate-600 hover:text-emerald-700"
+                    >
+                      Reset
+                    </Button>
+                  </div>
+                  <p className="text-xs text-slate-500">
+                    Reduce text size if your content overflows beyond one page.
+                  </p>
+                </div>
               </div>
 
               {/* Visual Document Preview */}
               <div className="bg-white text-black p-4 sm:p-10 md:p-14 shadow-2xl rounded-none mx-auto max-w-[850px] min-h-[1100px] border border-slate-200 print:shadow-none print:border-none print:p-0 print:m-0 print:w-full print:max-w-none print:min-h-0 print:rounded-none overflow-hidden">
-                <ResumePreview data={generatedResume} template={templateType} />
+                <ResumePreview
+                  data={generatedResume}
+                  template={templateType}
+                  fontScale={fontScale}
+                />
               </div>
             </div>
           )}
