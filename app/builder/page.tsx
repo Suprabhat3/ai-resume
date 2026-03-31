@@ -227,7 +227,16 @@ export default function BuilderPage() {
     //   );
     //   router.push("/login?callbackUrl=/builder");
     // }
+    const originalTitle = document.title;
+    if (generatedResume?.fullName) {
+      document.title = `${generatedResume.fullName} ATScV - Build Your Premium ATS-Friendly Resume`;
+    }
+
     window.print();
+
+    setTimeout(() => {
+      document.title = originalTitle;
+    }, 500);
   };
 
   return (

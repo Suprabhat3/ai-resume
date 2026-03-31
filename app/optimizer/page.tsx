@@ -83,7 +83,16 @@ export default function OptimizerPage() {
     //   localStorage.setItem("pendingOptimizerResume", JSON.stringify(result));
     //   router.push("/login?callbackUrl=/optimizer");
     // }
+    const originalTitle = document.title;
+    if (result?.fullName) {
+      document.title = `${result.fullName} ATScV - Build Your Premium ATS-Friendly Resume`;
+    }
+
     window.print();
+
+    setTimeout(() => {
+      document.title = originalTitle;
+    }, 500);
   };
 
   return (

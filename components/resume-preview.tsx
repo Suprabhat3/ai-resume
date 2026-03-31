@@ -376,10 +376,40 @@ function ClassicTemplate({ data }: { data: any }) {
             {data.projects.map((proj: any, i: number) => (
               <div key={i}>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline">
-                  <div className="flex gap-2 items-baseline">
+                  <div className="flex gap-2 items-baseline flex-wrap">
                     <h3 className="font-bold text-[11.5pt] text-black">
                       {proj.name}
                     </h3>
+                    <div className="flex flex-wrap gap-2 ml-2">
+                      {proj.liveLink && (
+                        <a
+                          href={
+                            proj.liveLink.startsWith("http")
+                              ? proj.liveLink
+                              : `https://${proj.liveLink}`
+                          }
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-zinc-600 hover:text-black transition flex items-center gap-1 text-[10px] font-semibold tracking-wider uppercase"
+                        >
+                          <Globe className="w-3 h-3" /> Live
+                        </a>
+                      )}
+                      {proj.githubLink && (
+                        <a
+                          href={
+                            proj.githubLink.startsWith("http")
+                              ? proj.githubLink
+                              : `https://${proj.githubLink}`
+                          }
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-zinc-600 hover:text-black transition flex items-center gap-1 text-[10px] font-semibold tracking-wider uppercase"
+                        >
+                          <Github className="w-3 h-3" /> Code
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
                 {proj.description && (
@@ -579,9 +609,41 @@ function MinimalistTemplate({ data }: { data: any }) {
                 {data.projects.map((proj: any, i: number) => (
                   <div key={i}>
                     <div className="mb-2">
-                      <h3 className="font-medium text-[12pt] text-zinc-900">
-                        {proj.name}
-                      </h3>
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <h3 className="font-medium text-[12pt] text-zinc-900">
+                          {proj.name}
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                          {proj.liveLink && (
+                            <a
+                              href={
+                                proj.liveLink.startsWith("http")
+                                  ? proj.liveLink
+                                  : `https://${proj.liveLink}`
+                              }
+                              target="_blank"
+                              rel="noreferrer"
+                              className="text-zinc-400 hover:text-zinc-700 transition flex items-center gap-1 text-[11px]"
+                            >
+                              <Globe className="w-3.5 h-3.5" /> Live
+                            </a>
+                          )}
+                          {proj.githubLink && (
+                            <a
+                              href={
+                                proj.githubLink.startsWith("http")
+                                  ? proj.githubLink
+                                  : `https://${proj.githubLink}`
+                              }
+                              target="_blank"
+                              rel="noreferrer"
+                              className="text-zinc-400 hover:text-zinc-700 transition flex items-center gap-1 text-[11px]"
+                            >
+                              <Github className="w-3.5 h-3.5" /> Code
+                            </a>
+                          )}
+                        </div>
+                      </div>
                       {proj.description && (
                         <div className="text-zinc-500 mt-1">
                           {proj.description}
