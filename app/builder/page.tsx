@@ -33,6 +33,8 @@ import {
 } from "lucide-react";
 // import { useRouter } from "next/navigation";
 import { ResumePreview } from "@/components/resume-preview";
+import { ManualResumeEditor } from "@/components/manual-resume-editor";
+import { Edit3, Eye } from "lucide-react";
 // import { createClient } from "@/utils/supabase/client";
 
 export default function BuilderPage() {
@@ -45,6 +47,7 @@ export default function BuilderPage() {
   >("modern");
   const [fontScale, setFontScale] = useState(1);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const [isManualEditing, setIsManualEditing] = useState(false);
 
   const [formData, setFormData] = useState({
     personal: {
@@ -1005,10 +1008,27 @@ export default function BuilderPage() {
                   <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto shrink-0">
                     <Button
                       variant="outline"
+                      onClick={() => setIsManualEditing(!isManualEditing)}
+                      className={`h-11 px-6 border-slate-200 rounded-none transition-all w-full sm:w-auto font-medium ${isManualEditing ? "bg-emerald-50 text-emerald-700 border-emerald-200" : "bg-white text-slate-600 hover:bg-slate-50 hover:text-emerald-700"}`}
+                    >
+                      {isManualEditing ? (
+                        <>
+                          <Eye className="mr-2 w-4 h-4" />
+                          View Preview
+                        </>
+                      ) : (
+                        <>
+                          <Edit3 className="mr-2 w-4 h-4" />
+                          Manual Edit
+                        </>
+                      )}
+                    </Button>
+                    <Button
+                      variant="outline"
                       onClick={() => setStep(4)}
                       className="h-11 px-6 bg-white border-slate-200 hover:bg-slate-50 hover:text-emerald-700 text-slate-600 rounded-none transition-all w-full sm:w-auto"
                     >
-                      Edit Details
+                      Reset AI Data
                     </Button>
                     <Button
                       onClick={handleDownloadAttempt}
@@ -1090,13 +1110,39 @@ export default function BuilderPage() {
                 </div>
               </div>
 
-              {/* Visual Document Preview */}
-              <div className="bg-white text-black p-4 sm:p-10 md:p-14 shadow-2xl rounded-none mx-auto max-w-[850px] min-h-[1100px] border border-slate-200 print:shadow-none print:border-none print:p-0 print:m-0 print:w-full print:max-w-none print:min-h-0 print:rounded-none overflow-hidden">
-                <ResumePreview
-                  data={generatedResume}
-                  template={templateType}
-                  fontScale={fontScale}
-                />
+              {/* Visual Document Preview / Editor */}
+              <div className="bg-white text-black p-4 sm:p-10 md:p-14 shadow-2xl rounded-none mx-auto max-w-[850px] min-h-[1100px] border border-slate-200 print:shadow-none print:border-none print:p-0 print:m-0 print:w-full print:max-w-none print:min-h-0 print:rounded-none overflow-hidden transition-all duration-500">
+                <div className={`${isManualEditing ? "block" : "hidden"} print:hidden animate-fade-in`}>
+                  <div className="mb-8 p-4 bg-emerald-50 border border-emerald-100 flex items-center gap-3">
+                    <div className="p-2 bg-emerald-600 rounded-none text-white">
+                      <Edit3 className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-emerald-900 text-sm">Manual Editor Mode</h4>
+                      <p className="text-emerald-700 text-xs">Changes below are reflected instantly in the resume preview.</p>
+                    </div>
+                    <Button 
+                      size="sm" 
+                      variant="ghost" 
+                      onClick={() => setIsManualEditing(false)}
+                      className="ml-auto text-emerald-700 hover:bg-emerald-100 rounded-none"
+                    >
+                      Finish Editing
+                    </Button>
+                  </div>
+                  <ManualResumeEditor 
+                    data={generatedResume} 
+                    onChange={(newData) => setGeneratedResume(newData)} 
+                  />
+                </div>
+                
+                <div className={`${isManualEditing ? "hidden" : "block"} print:block animate-fade-in`}>
+                  <ResumePreview
+                    data={generatedResume}
+                    template={templateType}
+                    fontScale={fontScale}
+                  />
+                </div>
               </div>
             </div>
           )}
